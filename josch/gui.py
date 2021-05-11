@@ -6,14 +6,14 @@ class GUI:
     # job to create a client GUI
     def __init__(self, dataloader_class):
         self._loader = dataloader_class()
-        win = Tk() 
+        self._win = Tk()
         #to specify size of window. 
-        win.geometry("250x170") 
+        self._win.geometry("250x170")
 
     def node_view(self, r):
         # To Create a text widget and specify size. 
         # TO Create label 
-
+        win = self._win
         dt = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
         date = r.loc['date']
         node_id = r.loc['node_id']

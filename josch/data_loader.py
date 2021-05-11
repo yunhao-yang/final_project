@@ -1,6 +1,6 @@
 import sqlalchemy as sql
 from sqlalchemy import MetaData, Table
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, create_engine
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy import insert, select, update
 import pandas as pd
@@ -27,10 +27,15 @@ class DB_DataLoader(DataLoader):
                         Column('job_desc', String(60)))
         
         # template nodes
+        'node_name', 'exec_command', 'signoff_time'
         self._tpl_nodes = Table('tpl_nodes', metadata,
                         Column('node_id', Integer, primary_key=True),
                         Column('node_type', String(5)),
-                        Column('job_name', String(20), ForeignKey('tpl_jobs.job_name')))
+                        Column('job_name', String(20), ForeignKey('tpl_jobs.job_name')),
+                        Column('node_name', String(20)),
+                        Column('exec_command', String(200)),
+                        Column('signoff_time', String(20)),
+                        )
         
         # template node dependencies
         self._tpl_node_deps = Table('tpl_node_deps', metadata,
@@ -41,7 +46,7 @@ class DB_DataLoader(DataLoader):
         
         self._engine = create_engine(kwargs['engine'])
                                
-                    
+
     def read_table(self, table_name):
         
         stmt = select(['{}.*'.format(table_name)])
@@ -53,7 +58,7 @@ class DB_DataLoader(DataLoader):
     
 class CSV_DataLoader(DataLoader):
     # sub-class of DataLoader, which uses CSV to store data
-    
+
     def __init__(self, **kwargs):
         table_dict = {}
         

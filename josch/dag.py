@@ -1,15 +1,18 @@
 
-def DAG:
+class DAG:
     # class to determine node dependencies
     def __init__(self, dag):
-        self._dag
+        self._dag = dag
     
     def topological_sort(self):
         dag = self._dag
         
         dfs_nodes = []
         visited_nodes = set()
-        
+        child_edges = []
+        parent_edges = []
+        nodes = []
+        name_dict = {}
         # Inner function to perform Depth-First-Search
         def dfs(node, level):
             if node in visited_nodes:
