@@ -55,6 +55,7 @@ script:
   - tox -v
 after_failure:
   - cat .tox/log/*
+  - cat .tox/log/*
   - cat .tox/*/log/*
 notifications:
   email:
