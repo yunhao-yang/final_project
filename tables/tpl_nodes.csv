@@ -1,0 +1,7 @@
+node_id,node_type,job_name,node_name,exec_command,signoff_time
+900000,S,Eod,Eod_Signoff,,15:30:00
+100000,S,Sod,Sod_Signoff,,06:30:00
+100100,L,SodServer,SodServer_RtPrice,$PYTHON rt_price_server.py --date $DATE,
+100110,L,SodServer,SodServer_EodPrice,$PYTHON eod_price_server.py --date $DATE,
+100120,N,SodServer,SodServer_ProdFeature,$PYTHON prod_feature.py --date $DATE,
+100130,R,SodServer,SodServer_CheckStatus,$PYTHON check_status.py --date $DATE,
