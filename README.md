@@ -1,6 +1,6 @@
-#Documentation for JOSCH
+# Documentation for JOSCH
 
-###Project Proposal
+### Project Proposal
 
 In this project, I will develop from scratch a light-weight interactive job scheduler (JOSCH for short). Similar to Airflow, JOSCH is a workflow management platform, which enables users and programs to schedule, monitor, and edit routine tasks. The advantage of JOSCH compared to Airflow is that it’s more light-weighted and user customizable. We also have complete control over the system since it’s developed from scratch, which makes it easier to add additional functionality or change the underlying logic in the future. The project will cover the following major topics.
 
@@ -40,11 +40,12 @@ Here are some visualizations associated with the project, which will be explaine
 
 Example Node dependencies in a Job:
 
-![img_1.png](img_1.png)
+![image](https://user-images.githubusercontent.com/78084449/117831031-c9823100-b2a6-11eb-9b68-05e1db269d43.png)
 
 Clients' GUI to change the node states: 
 
-![img.png](img.png)
+![image](https://user-images.githubusercontent.com/78084449/117830968-b8d1bb00-b2a6-11eb-83df-fe9353eae7df.png)
+
 
 File descriptions:
 
@@ -139,7 +140,7 @@ represents type of the node. Dashed circle represents nodes outside of the job, 
 within the job. Red means the node is a review node, which needs close attention. Each node also includes
 job_name, node_id, node_type, node_name, which is informative to human.
 
-![img_1.png](img_1.png)
+![image](https://user-images.githubusercontent.com/78084449/117831031-c9823100-b2a6-11eb-9b68-05e1db269d43.png)
 
 
 #### gui.py
@@ -155,5 +156,5 @@ buttons are "Mark Success" and "Retry". The right GUI is a review node.
 In this case, users can either directly change the 'state' column in the database, or use the GUI to
 quickly change the state of nodes.
 
-![img.png](img.png)
+![image](https://user-images.githubusercontent.com/78084449/117830968-b8d1bb00-b2a6-11eb-83df-fe9353eae7df.png)
 
