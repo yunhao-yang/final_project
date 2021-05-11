@@ -4,13 +4,19 @@ from template_container import *
 
 
 class DataParser:
-    # class to parse job/node to internal data structures
+    """
+    class to parse job/node to internal data structures
+    """
     def __init__(self, data_loader_class, date):
         self._data_loader_class = data_loader_class
         self._date = date
         self.parse_data()
 
     def parse_data(self):
+        """
+
+        :return: parsed data from db or csv
+        """
         date = self._date
         loader = self._data_loader_class()
         

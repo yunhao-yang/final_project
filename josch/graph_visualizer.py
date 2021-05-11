@@ -1,11 +1,18 @@
 from graphviz import Digraph
 
 class Visualizer:
-    # A class to visualize dag graph
+    """
+     A class to visualize dag graph
+    """
+
     def __init__(self, tmpjob):
         self._tmpjob = tmpjob
     
     def visualize(self):
+        """
+
+        :return: the visualized graph
+        """
         tmpjob = self._tmpjob
         
         dot = Digraph(comment=tmpjob._job_name)

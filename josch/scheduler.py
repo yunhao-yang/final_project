@@ -32,13 +32,19 @@ def sch_exec_command(exec_command, environ_map):
 
 
 class Scheduler:
-    # class to schedule template jobs/nodes
+    """
+    class to schedule template jobs/nodes
+    """
     def __init__(self, data_parser):
         self._date = data_parser._date
         self._tpljob_map = data_parser._tpljob_map
         self._environ_map = data_parser._environ_map
 
     def schedule(self):
+        """
+
+        :return: scheduled job/nodes from templates
+        """
         tpljob_map = self._tpljob_map
         date = self._date
         environ_map = self._environ_map

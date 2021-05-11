@@ -6,12 +6,16 @@ from sqlalchemy import insert, select, update
 import pandas as pd
 
 class DataLoader:
-    # Abstract class for reading data
+    """
+    Abstract class for reading data
+    """
     def read_table(self, table_name):
         raise NotImplementedError()
         
 class DB_DataLoader(DataLoader):
-    # sub-class of DataLoader, which uses database to store data
+    """
+    sub-class of DataLoader, which uses database to store data
+    """
     def __init__(self, **kwargs):
         metadata = MetaData()
         self._metadata = metadata
@@ -48,7 +52,11 @@ class DB_DataLoader(DataLoader):
                                
 
     def read_table(self, table_name):
-        
+        """
+
+        :param table_name: table name to be read
+        :return: dataframe of the table
+        """
         stmt = select(['{}.*'.format(table_name)])
         connection = self._engine.connect()
         results = connection.execute(stmt).fetchall()
@@ -57,7 +65,9 @@ class DB_DataLoader(DataLoader):
     
     
 class CSV_DataLoader(DataLoader):
-    # sub-class of DataLoader, which uses CSV to store data
+    """
+     sub-class of DataLoader, which uses CSV to store data
+    """
 
     def __init__(self, **kwargs):
         table_dict = {}

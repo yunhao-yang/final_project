@@ -1,10 +1,16 @@
 
 class DAG:
-    # class to determine node dependencies
+    """
+    class to determine node dependencies
+    """
     def __init__(self, dag):
         self._dag = dag
     
     def topological_sort(self):
+        """
+
+        :return: the topologically sorted dag
+        """
         dag = self._dag
         
         dfs_nodes = []

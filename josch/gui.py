@@ -3,7 +3,10 @@ from tkinter import *
 import datetime
 
 class GUI:
-    # job to create a client GUI
+    """
+    job to create a client GUI
+    """
+
     def __init__(self, dataloader_class):
         self._loader = dataloader_class()
         self._win = Tk()
@@ -11,6 +14,11 @@ class GUI:
         self._win.geometry("250x170")
 
     def node_view(self, r):
+        """
+
+        :param r: specific job
+        :return: the graphical view of the job
+        """
         # To Create a text widget and specify size. 
         # TO Create label 
         win = self._win

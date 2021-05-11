@@ -1,6 +1,8 @@
 
 class Job:
-    # class to represent a template job
+    """
+    class to represent a template job
+    """
     def __init__(self, job_name):
         self._job_name = job_name
         self._edges = []
@@ -36,7 +38,9 @@ class Job:
 
     
 class Node:
-    # class to represent a template node
+    """
+    class to represent a template node
+    """
     def __init__(self, node_id, node_type, job_name, 
                  node_name, exec_command, signoff_time, date):
         self._job_name = job_name
